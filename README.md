@@ -77,7 +77,7 @@ python ...
 
 ### Screenshot
 
-![RAG Workflow](docs/RAG-Chatbot.png)
+![Workflow](docs/rag-chatbot.png)
 
 ## The debugging journey (the real learning):
 ❌ IF node kept throwing type mismatch errors — messageType returned an object instead of a string, had to switch comparison strategy entirely
