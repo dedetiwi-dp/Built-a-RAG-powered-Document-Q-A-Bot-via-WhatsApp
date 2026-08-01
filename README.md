@@ -2,7 +2,8 @@
 
 I just finished building a system where you can send any PDF document to a WhatsApp number, and then ask questions about it in natural language — getting accurate, context-aware answers back in seconds. No OpenAI. No paid APIs. Everything runs locally on my laptop.
 
-How it works:
+## How it works:
+
 📄 Upload flow (PDF → Knowledge Base):
 1️⃣ User sends a PDF via WhatsApp
 2️⃣ Evolution API captures the document and forwards it to n8n via webhook
