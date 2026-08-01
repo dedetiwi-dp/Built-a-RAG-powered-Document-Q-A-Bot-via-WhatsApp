@@ -75,6 +75,17 @@ npm ...
 
 python ...
 
+## Workflow
+
+The workflow is built using n8n and consists of two main processes:
+
+- Document ingestion (PDF → Text Extraction → Embeddings → Qdrant)
+- Question answering using Ollama + Qdrant Retrieval-Augmented Generation (RAG)
+
+### n8n Workflow
+
+![RAG Workflow](docs/workflow-rag.png)
+
 ## The debugging journey (the real learning):
 ❌ IF node kept throwing type mismatch errors — messageType returned an object instead of a string, had to switch comparison strategy entirely
 ❌ Qdrant container kept shutting down silently after laptop sleep — lost all vector data on restart, had to rebuild the collection and re-insert documents multiple times before understanding persistence behavior
