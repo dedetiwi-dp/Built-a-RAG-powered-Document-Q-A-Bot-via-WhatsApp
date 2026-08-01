@@ -1,4 +1,4 @@
-🤖 Built a RAG-powered Document Q&A Bot via WhatsApp — fully self-hosted, zero cloud dependency
+🤖 AI-Powered RAG Document Q&A Bot via WhatsApp
 
 I just finished building a system where you can send any PDF document to a WhatsApp number, and then ask questions about it in natural language — getting accurate, context-aware answers back in seconds. No OpenAI. No paid APIs. Everything runs locally on my laptop.
 
@@ -17,15 +17,64 @@ How it works:
 4️⃣ Retrieved context + question are passed to Ollama (llama3.2) for answer generation
 5️⃣ The answer is sent back to the user's WhatsApp automatically
 
-Tech stack (100% self-hosted & free):
-🔹 n8n — workflow orchestration
-🔹 Evolution API — WhatsApp gateway via Baileys protocol
-🔹 Ollama — local LLM (llama3.2) + embedding model (nomic-embed-text)
-🔹 Qdrant — vector database for semantic search
-🔹 Docker — containerized infrastructure (Postgres, Redis, Evolution API, Qdrant)
-🔹 LangChain AI Agent — tool-based reasoning via n8n's AI Agent node
+## Features
 
-The debugging journey (the real learning):
+- Upload PDF via WhatsApp
+- Automatic document indexing
+- Semantic search with embeddings
+- AI-powered question answering
+- Fully self-hosted
+- Multi-service Docker architecture
+- Vector database retrieval
+
+
+## Tech Stack :
+
+| Technology    | Purpose                |
+| ------------- | ---------------------- |
+| n8n           | Workflow orchestration |
+| Evolution API | WhatsApp gateway       |
+| Ollama        | Local LLM & Embeddings |
+| Qdrant        | Vector database        |
+| LangChain     | AI Agent               |
+| Docker        | Containerization       |
+
+
+## Architecture :
+
+WhatsApp
+    │
+Evolution API
+    │
+n8n Workflow
+    │
+PDF Processing
+    │
+Embedding (Ollama)
+    │
+Qdrant Vector DB
+    │
+LangChain AI Agent
+    │
+Ollama Llama 3.2
+    │
+WhatsApp Response
+
+## Installation :
+
+git clone ...
+
+docker compose up
+
+ollama pull llama3.2
+
+ollama pull nomic-embed-text
+
+npm ...
+
+python ...
+
+## The debugging journey (the real learning):
 ❌ IF node kept throwing type mismatch errors — messageType returned an object instead of a string, had to switch comparison strategy entirely
 ❌ Qdrant container kept shutting down silently after laptop sleep — lost all vector data on restart, had to rebuild the collection and re-insert documents multiple times before understanding persistence behavior
 ❌ AI Agent had no idea what document to search — turns out Chroma Vector Store (which I initially used) wasn't compatible with my setup; migrated to Qdrant and rewired all embedding connections
@@ -35,7 +84,8 @@ The debugging journey (the real learning):
 
 ✅ After systematically isolating each layer — infrastructure → webhook → data pipeline → AI retrieval → response delivery — everything clicked into place.
 
-Key takeaway: RAG isn't just a prompt engineering trick. It's an infrastructure problem. Getting the data ingestion pipeline, vector storage, embedding consistency, and retrieval accuracy all working together requires understanding each layer deeply — not just connecting nodes.
+## Key takeaway:
+RAG isn't just a prompt engineering trick. It's an infrastructure problem. Getting the data ingestion pipeline, vector storage, embedding consistency, and retrieval accuracy all working together requires understanding each layer deeply — not just connecting nodes.
 
 This project pushed me into real AI engineering territory: binary file handling, vector databases, embedding models, LangChain agent tool design, and multi-step async debugging across 6+ interconnected services.
 Next up: expanding this into a multi-document knowledge base with source attribution, and eventually deploying the full stack to a VPS for 24/7 availability.
