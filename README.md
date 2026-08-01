@@ -75,7 +75,7 @@ npm ...
 
 python ...
 
-## Alur kerja
+## Tangkapan layar
 
 ![Alur kerja](docs/rag-chatbot.png)
 
