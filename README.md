@@ -75,14 +75,7 @@ npm ...
 
 python ...
 
-## Workflow
-
-The workflow is built using n8n and consists of two main processes:
-
-- Document ingestion (PDF → Text Extraction → Embeddings → Qdrant)
-- Question answering using Ollama + Qdrant Retrieval-Augmented Generation (RAG)
-
-### n8n Workflow
+### Screenshot
 
 ![RAG Workflow](docs/workflow-rag.png)
 
